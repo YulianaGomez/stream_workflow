@@ -3,7 +3,15 @@ Last Updated: March 13, 2018
 About
 ----------------------
 Prelimary workflow for streaming between a source with high throughput to an an outside computing
-system
+system. Different downsampling techniques are used. 
+
+A simple multicast simulation is implemented using ns2 simulator.
+
+For a quick compression analysis, compvserr.py, under Compression_analysis can be run to simulate the
+3 different compression algorithms. The current raw tiffs in the directory aid in quick analysis time.
+New images can be place in the images directory. If the number of trials (ntrials) is set high, run
+-time can take 10+ minutes.
+
 
 ----------------------
 Required to run:
@@ -12,24 +20,46 @@ Bzip: http://www.bzip.org/
 Gzip: http://www.gzip.org/
 Sz: https://github.com/CODARcode/z-checker-installer
 GLobus*: https://www.globus.org/
+Ns2 Simulator: https://www.isi.edu/nsnam/ns/
 *Certain adjustments can be made to simulate streaming with globus if sandbox isn't public yet
-
 
 
 ----------------------
 Files
 ----------------------
+Downsampling
+|--cleared              Analyzed/compressed files that have undergone blur detection and compression
+|--landing              Place images to undergo analysis
+|--15522.tiff           Sample data file
+|--README
+|--detectblur_tf.py     Uses sz,gzip,bzip2 to compress data corresponding to flag given, removes
+                        blurry images dependent on threshold given
+|--exp.png              Sample image file
+|--sz                   sz executable
 
+Compression_analysis
+|--images               1 brain image tiff sample for compression analysis
+|--*.raw                Several raw files to enable quick results, images can be changed, results will
+                        take longer to return
+|--yplo1.png            Current results of compression ratio comparison of sz, gzip, bzip2
+|--yplo2.png            Current results of compression time comparions of sz, gzip, bzip2
+|--compvserr.py         Runs three compression ratios on images in images folder, returns analysis in
+                        graph form
+Circular_Buffer
+|-- file_generator.py   Generate random files of user-defined size
+|-- cache_manager.py    Circular buffer management
 
-
-
-----------------------
-Command Line Arguments
-----------------------
-
-
+Multicast
+|-- multi.tcl           ns-2 script for multicast simulation
+|-- uni.tcl             ns-2 script for unicast simulation
+|-- throughput.awk      used by the tcl scripts to compute throughput
+|-- analyze.py          Compute average throughput and packet loss rate
+|-- throughput.png      Result graph plotted  with GNUplot
 
 
 ----------------------
 Graphing
 ----------------------
+To visualize compression results, go into compression_analysis and run: python compvserr.py
+To visualize multicast results, go to Multicast and run: python analyze.py
+
