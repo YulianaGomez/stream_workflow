@@ -1,0 +1,35 @@
+Last Updated: March 13, 2018
+----------------------
+About
+----------------------
+Prelimary workflow for streaming between a source with high throughput to an an outside computing
+system
+
+----------------------
+Required to run:
+----------------------
+Bzip: http://www.bzip.org/
+Gzip: http://www.gzip.org/
+Sz: https://github.com/CODARcode/z-checker-installer
+GLobus*: https://www.globus.org/
+*Certain adjustments can be made to simulate streaming with globus if sandbox isn't public yet
+
+
+
+----------------------
+Files
+----------------------
+
+
+
+
+----------------------
+Command Line Arguments
+----------------------
+
+
+
+
+----------------------
+Graphing
+----------------------
