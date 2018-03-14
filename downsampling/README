@@ -1,0 +1,33 @@
+Compression and blur detection
+
+----------------------
+Required to run:
+----------------------
+Bzip: http://www.bzip.org/
+Gzip: http://www.gzip.org/
+Sz: https://github.com/CODARcode/z-checker-installer
+
+----------------------
+To run:
+use corresponding flags 
+-s squeeze
+-g gzip
+-b bzip
+----------------------
+For example, to run squeeze compression:
+
+python detectblur_tf.py -i landing -d cleared -s 
+
+----------------------
+Directions:
+----------------------
+Place images that you need to be compressed/analyzed for blurriness. 
+Images will be either deleted or placed under the clear folder if it passes the threshold.
+
+To change threshold, use the -t flag. The threshold default is 100.
+
+For example, to lower threshold to 75, you can run:
+
+python detectblur_tf.py -i landing -d cleared -t 75
+
+
